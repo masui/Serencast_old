@@ -1,4 +1,4 @@
-.PHONY: stations comics making gyatv info youtube news menthas radio
+.PHONY: stations comics making gyatv info youtube news menthas radio scrapbox
 
 all: data
 
@@ -9,6 +9,10 @@ stations:
 # ニュース
 news:
 	cd News; make
+
+# Scrapbox
+scrapbox:
+	cd Scrapbox; make
 
 # 漫画
 comics:
@@ -47,6 +51,7 @@ radio:
 CONTENTS = \
 	Info/info.ltsv \
 	News/news.ltsv \
+	Scrapbox/scrapbox.ltsv \
 	Comics/comics.ltsv \
 	Stations/stations.ltsv \
 	Making/making.ltsv \
