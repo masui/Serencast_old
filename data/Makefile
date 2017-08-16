@@ -1,10 +1,15 @@
-.PHONY: stations comics making gyatv info youtube
+.PHONY: stations comics making gyatv info youtube news menthas radio
 
 all: data
 
 # 駅
 stations:
 	cd Stations; make
+
+# ニュース
+news:
+	cd News; make
+
 # 漫画
 comics:
 	-mkdir Comics
@@ -29,18 +34,28 @@ youtube:
 	-mkdir YouTube
 	ruby getsbdata.rb Serencast 'YouTube' > YouTube/youtube.ltsv
 
+# Menthas
+menthas:
+	-mkdir Menthas
+	ruby getsbdata.rb Serencast 'Menthas' > Menthas/menthas.ltsv
+
+# Radio
+radio:
+	-mkdir Radio
+	ruby getsbdata.rb Serencast 'Radio' > Radio/radio.ltsv
+
 CONTENTS = \
 	Info/info.ltsv \
+	News/news.ltsv \
 	Comics/comics.ltsv \
 	Stations/stations.ltsv \
 	Making/making.ltsv \
 	GyaTV/gyatv.ltsv \
-	YouTube/youtube.ltsv
+	Menthas/menthas.ltsv \
+	YouTube/youtube.ltsv \
+	Radio/radio.ltsv
 
-#	News/news.ltsv \
-#	Menthas/menthas.ltsv \
 #	Music/music.ltsv \
-#	Radio/radio.ltsv \
 #	GIF/gif.ltsv \
 #	Photos/photos.ltsv \
 #	Aozora/aozora.ltsv \
