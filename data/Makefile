@@ -1,6 +1,8 @@
-.PHONY: stations comics making gyatv info youtube news menthas radio scrapbox
+DIRS = stations comics making gyatv info youtube news menthas radio scrapbox
 
-all: stations comics making gyatv info youtube news menthas radio scrapbox data
+.PHONY: ${DIRS}
+
+all: ${DIRS}
 
 # 駅
 stations:
