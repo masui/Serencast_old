@@ -1,6 +1,6 @@
 .PHONY: stations comics making gyatv info youtube news menthas radio scrapbox
 
-all: data
+all: stations comics making gyatv info youtube news menthas radio scrapbox data
 
 # 駅
 stations:
@@ -67,7 +67,8 @@ CONTENTS = \
 #	Recipe/allrecipe.ltsv \
 
 data:
-	ruby ltsv2json ${CONTENTS} | /usr/local/bin/jq . > ../data.json
+	ruby ltsv2json ${CONTENTS} | jq . > ../data.json
+#	ruby ltsv2json ${CONTENTS} | /usr/local/bin/jq . > ../data.json
 
 # 駅
 # 青空
