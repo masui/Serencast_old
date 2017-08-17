@@ -1,0 +1,8 @@
+# -*- ruby -*-
+
+puts "title:Videom"
+ARGF.each { |line|
+  line.chomp!
+  puts " #{line}"
+}
+

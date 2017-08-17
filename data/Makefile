@@ -1,4 +1,4 @@
-DIRS = stations comics making gyatv info youtube news menthas radio scrapbox hondana
+DIRS = stations comics making gyatv info youtube news menthas radio scrapbox hondana videom
 
 .PHONY: ${DIRS}
 
@@ -55,7 +55,12 @@ radio:
 	-mkdir Radio
 	ruby getsbdata.rb Serencast 'Radio' > Radio/radio.ltsv
 
+# Videom
+videom:
+	cd Videom; make
+
 CONTENTS = \
+	Videom/videom.ltsv \
 	Info/info.ltsv \
 	News/news.ltsv \
 	Scrapbox/scrapbox.ltsv \
