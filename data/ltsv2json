@@ -5,16 +5,15 @@
 #
 
 require 'json'
-# require 'kconv'
 
 root = {}
 parents = []
 parents[0] = root
 
 category = ''
+oldindent = 0
 
 ARGF.each { |line|
-#   line = Kconv.kconv(line, Kconv::UTF8, Kconv::AUTO)
   line.chomp!
   next if line =~ /^\s*$/m
   next if line =~ /^#/m
@@ -24,15 +23,17 @@ ARGF.each { |line|
 
   node = {}
   parents[indent+1] = node
+  
   if parents[indent]['children'].nil? then
     parents[indent]['children'] = []
-    #if indent > 0 then
-    #  nop = {}
-    #  nop['url'] = ''
-    #  nop['title'] = "#{category} リスト先頭"
-    #  parents[indent]['children'] << nop
-    #end
   end
+
+  if indent > oldindent then
+    nodex = {}
+    nodex['title'] = '--------------------'
+    parents[indent]['children'] << nodex
+  end
+  
   parents[indent]['children'] << node
   line.split(/\t/).each { |entry|
     entry =~ /^([a-zA-Z_]+):(\s*)(.*)$/
@@ -41,6 +42,8 @@ ARGF.each { |line|
       category = $3
     end
   }
+
+  oldindent = indent
 }
 
 puts root['children'].to_json
