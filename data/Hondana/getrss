@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+# -*- ruby -*-
+#
+
+require 'rubygems'
+require 'rss'
+require 'open-uri'
+require 'hpricot'
+
+#
+# 取得したフィードを配列で返す。
+# フィードが無い場合は空配列を返す。
+# 指定したURLが無効な場合はnilを返す。
+#
+
+
+require 'feed-normalizer'
+
+def process_rss(rss,list)
+  content = ''
+  open(rss){ |f|
+    content = f.read
+  }
+
+  rss = FeedNormalizer::FeedNormalizer.parse(content)
+  rss.entries.map do |item|
+    puts " url:#{item.url}\ttitle:#{item.title}"
+  end
+end
+
+def getrss(url)
+  list = []
+  list = process_rss(url,list)
+end
+
+puts "title:本棚.org"
+getrss('http://hondana.org/atom.xml')

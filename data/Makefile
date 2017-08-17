@@ -1,8 +1,9 @@
-DIRS = stations comics making gyatv info youtube news menthas radio scrapbox
+DIRS = stations comics making gyatv info youtube news menthas radio scrapbox hondana
 
 .PHONY: ${DIRS}
 
 all: ${DIRS}
+	make data
 
 # 駅
 stations:
@@ -15,6 +16,10 @@ news:
 # Scrapbox
 scrapbox:
 	cd Scrapbox; make
+
+# 本棚
+hondana:
+	cd Hondana; make
 
 # 漫画
 comics:
@@ -54,6 +59,7 @@ CONTENTS = \
 	Info/info.ltsv \
 	News/news.ltsv \
 	Scrapbox/scrapbox.ltsv \
+	Hondana/hondana.ltsv \
 	Comics/comics.ltsv \
 	Stations/stations.ltsv \
 	Making/making.ltsv \
