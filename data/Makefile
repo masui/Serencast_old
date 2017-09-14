@@ -1,4 +1,4 @@
-DIRS = stations comics making gyatv info youtube news menthas radio scrapbox hondana videom
+DIRS = stations comics making gyatv info youtube news menthas radio scrapbox hondana videom masuispicks
 
 .PHONY: ${DIRS}
 
@@ -50,16 +50,28 @@ menthas:
 	-mkdir Menthas
 	ruby getsbdata.rb Serencast 'Menthas' > Menthas/menthas.ltsv
 
+# Masui's Picks
+masuispicks:
+	-mkdir MasuisPicks
+	ruby getsbdata.rb Serencast 'MasuisPicks' > MasuisPicks/masuispicks.ltsv
+
 # Radio
 radio:
 	-mkdir Radio
 	ruby getsbdata.rb Serencast 'Radio' > Radio/radio.ltsv
+
+# 青空文庫
+#aozora:
+#	-mkdir Aozora
+
+#	ruby getsbdata.rb Serencast 'Radio' > Radio/radio.ltsv
 
 # Videom
 videom:
 	cd Videom; make
 
 CONTENTS = \
+	MasuisPicks/masuispicks.ltsv \
 	Videom/videom.ltsv \
 	Info/info.ltsv \
 	News/news.ltsv \
@@ -72,6 +84,7 @@ CONTENTS = \
 	Menthas/menthas.ltsv \
 	YouTube/youtube.ltsv \
 	Radio/radio.ltsv
+#	Aozora/aozora.ltsv \
 
 #	Music/music.ltsv \
 #	GIF/gif.ltsv \

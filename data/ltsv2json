@@ -28,11 +28,11 @@ ARGF.each { |line|
     parents[indent]['children'] = []
   end
 
-  if indent > oldindent then
-    nodex = {}
-    nodex['title'] = '--------------------'
-    parents[indent]['children'] << nodex
-  end
+  # if indent > oldindent then
+  #   nodex = {}
+  #   nodex['title'] = '▼▼▼▼▼▼▼▼'
+  #   parents[indent]['children'] << nodex
+  # end
   
   parents[indent]['children'] << node
   line.split(/\t/).each { |entry|
