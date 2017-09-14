@@ -43,7 +43,8 @@ info:
 # YouTube
 youtube:
 	-mkdir YouTube
-	ruby getsbdata.rb Serencast 'YouTube' > YouTube/youtube.ltsv
+	ruby getsbdata.rb Serencast 'YouTube' | ruby sb2ltsv.rb > YouTube/youtube.ltsv
+#	ruby getsbdata.rb Serencast 'YouTube' > YouTube/youtube.ltsv
 
 # Menthas
 menthas:
