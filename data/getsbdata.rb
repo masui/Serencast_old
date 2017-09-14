@@ -31,7 +31,7 @@ a.shift # 先頭のタイトルを除去
 a.each { |line|
   next if line =~ /^\s*$/
   next if line =~ /^\s*#/
-  next unless line =~ /:/
+  # next unless line =~ /:/
   puts line
 }
 
