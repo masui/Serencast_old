@@ -16,7 +16,7 @@ ARGF.each { |line|
       content = "title:#{a[0..a.length-2].join(' ')}\turl:#{a[a.length-1]}"
     end
     line = "#{head}#{content}#{tail}"
-  else
+  elsif line !~ /title:/
     line =~ /^(\s*)(.*)$/
     line = "#{$1}title:#{$2}"
   end
