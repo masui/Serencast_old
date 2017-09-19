@@ -1,4 +1,4 @@
-DIRS = stations comics making gyatv info youtube news menthas radio scrapbox hondana videom masuispicks blog
+DIRS = news stations comics making gyatv info youtube menthas radio scrapbox hondana videom masuispicks blog
 
 .PHONY: ${DIRS}
 
@@ -23,47 +23,48 @@ hondana:
 
 # 漫画
 comics:
-	-mkdir Comics
 	ruby getsbdata.rb Serencast '漫画' | ruby sb2ltsv.rb > Comics/comics.ltsv
+#	-mkdir Comics
+
 # JST
 making:
-	-mkdir Making
 	ruby getsbdata.rb Serencast 'The Making' | ruby sb2ltsv.rb > Making/making.ltsv
+#	-mkdir Making
 
 # Blog
 blog:
-	-mkdir Blog
 	ruby getsbdata.rb Serencast 'Blog' | ruby sb2ltsv.rb > Blog/blog.ltsv
+#	-mkdir Blog
 
 # GyaTV
 gyatv:
-	-mkdir GyaTV
 	ruby getsbdata.rb Serencast 'GyaTV' | ruby sb2ltsv.rb > GyaTV/gyatv.ltsv
+#	-mkdir GyaTV
 
 # Info
 info:
-	-mkdir Info
 	ruby getsbdata.rb Serencast 'Info' | ruby sb2ltsv.rb > Info/info.ltsv
+#	-mkdir Info
 
 # YouTube
 youtube:
-	-mkdir YouTube
 	ruby getsbdata.rb Serencast 'YouTube' | ruby sb2ltsv.rb > YouTube/youtube.ltsv
+#	-mkdir YouTube
 
 # Menthas
 menthas:
-	-mkdir Menthas
 	ruby getsbdata.rb Serencast 'Menthas' | ruby sb2ltsv.rb > Menthas/menthas.ltsv
+#	-mkdir Menthas
 
 # Masui's Picks
 masuispicks:
-	-mkdir MasuisPicks
 	ruby getsbdata.rb Serencast 'MasuisPicks' | ruby sb2ltsv.rb > MasuisPicks/masuispicks.ltsv
+#	-mkdir MasuisPicks
 
 # Radio
 radio:
-	-mkdir Radio
 	ruby getsbdata.rb Serencast 'Radio' | ruby sb2ltsv.rb > Radio/radio.ltsv
+#	-mkdir Radio
 
 # 青空文庫
 #aozora:
