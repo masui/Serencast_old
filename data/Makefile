@@ -100,7 +100,7 @@ CONTENTS = \
 #	Recipe/allrecipe.ltsv \
 
 data:
-	ruby ltsv2json ${CONTENTS} | jq . > ../data.json
+	ruby ltsv2json.rb ${CONTENTS} | jq . > ../data.json
 #	ruby ltsv2json ${CONTENTS} | /usr/local/bin/jq . > ../data.json
 
 # 駅
